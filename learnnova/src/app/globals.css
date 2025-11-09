@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+:root {
+  --background: #050c1a;
+  --foreground: #f4f6ff;
+  --accent: #d4af37;
+  --accent-soft: #f3d47a33;
+  --card: #0d1935;
+  --card-border: #1f2b4d;
+  --muted: #8ea2d1;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-muted: var(--muted);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: radial-gradient(circle at top, rgba(19, 34, 78, 0.85), var(--background));
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  min-height: 100vh;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 9999px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.glass-card {
+  @apply rounded-3xl border border-[color:var(--card-border)] bg-[color:var(--card)]/80 shadow-xl backdrop-blur-lg;
+}
+
+.glass-button {
+  @apply flex items-center justify-center gap-2 rounded-2xl border border-[color:var(--accent)]/40 bg-[color:var(--card)]/70 px-4 py-3 text-[color:var(--foreground)] transition hover:border-[color:var(--accent)] hover:bg-[color:var(--accent)]/20;
+}
+
+.pill {
+  @apply rounded-full bg-[color:var(--accent-soft)] px-4 py-1 text-sm font-medium text-[color:var(--accent)];
+}
+
+.title-gradient {
+  background: linear-gradient(120deg, var(--accent), #f9e79f, #d4c183);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page-grid {
+  @apply grid gap-6 xl:grid-cols-[320px_1fr];
+}
